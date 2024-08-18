@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  app:
+  
+    image: app-api
+    
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"  # Expose port 80 for Nginx
+    volumes:
+      - ./nginx:/etc/nginx/  
+    depends_on:
+      - app
+
